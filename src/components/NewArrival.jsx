@@ -2,7 +2,7 @@ export default function NewArrival() {
   return (
     <div className="bg-white dark:bg-gray-800   min-h-12 py-6 sm:py-8 lg:py-12">
       <header className="w-full flex flex-col items-center mb">
-        <h1 className="text-4xl font-bold text-center max-w-4xl w-full text-gray-800">
+      <h1 className="text-4xl font-bold text-center max-w-4xl w-full text-gray-800">
           New Arrival
         </h1>
       </header>
