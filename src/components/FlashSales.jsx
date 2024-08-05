@@ -1,7 +1,8 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice'; // Adjust the import path as needed
-
+import mrfbatImg from "../assets/mrf-bat.jpg"; // Import local image
+import keyboardImg from "../assets/key1.jpg"
 const products = [
   {
     id: 1,
@@ -13,16 +14,16 @@ const products = [
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-    title: 'Nike Air MX Super 2500 - Red',
-    price: 449,
-    oldPrice: 699,
-    rating: 5.0,
+    image: mrfbatImg, // Use local image directly
+    title: 'MRF Bat - Classic',
+    price: 299,
+    oldPrice: 399,
+    rating: 4.5,
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-    title: 'Nike Air MX Super 2500 - Red',
+    image: keyboardImg,
+    title: ' ZEB mouse and keyboard',
     price: 449,
     oldPrice: 699,
     rating: 5.0,

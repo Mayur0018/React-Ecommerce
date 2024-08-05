@@ -1,33 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import FlashSales from './FlashSales';
 import BrowserByCategory from './BrowserByCategory';
 import BestSellingProducts from './BestSellingProducts';
 import NewArrival from './NewArrival';
-
-const ACCESS_KEY = '-0l22hnYCqomsJY2ToywZm_iCt5dOO1lY4KPqQ3_0Ew';
+import slider1 from "../assets/slider1.jpg";
+import slider2 from "../assets/slider2.jpg";
+import slider3 from "../assets/slider3.jpg";
+import slider4 from "../assets/slider4.jpg";
+import slider5 from "../assets/slider5.jpg";
 
 function Home() {
-  const [images, setImages] = useState([]);
+  const images = [
+    { src: slider1 },
+    { src: slider2},
+    { src: slider3},
+    { src: slider4},
+    { src: slider5},
+  ];
+  
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await axios.get(`https://api.unsplash.com/photos?client_id=${ACCESS_KEY}&per_page=5&query=phones,clothes`);
-        setImages(response.data);
-        setLoading(false);
-      } catch (error) {
-        setError('Error fetching images');
-        setLoading(false);
-      }
-    };
-
-    fetchImages();
-  }, []);
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
@@ -41,15 +33,12 @@ function Home() {
     setCurrentIndex(index);
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-
   return (
     <section className="p-6">
       <div className="max-w-full mx-auto">
         <div className="relative" data-carousel="static">
           {/* Carousel wrapper */}
-          <div className="relative h-64 sm:h-80 md:h-96 lg:h-128 xl:h-144 overflow-hidden rounded-lg">
+          <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 xl:h-112 overflow-hidden rounded-lg">
             {/* Carousel items */}
             {images.length > 0 ? (
               images.map((image, index) => (
@@ -59,12 +48,12 @@ function Home() {
                   data-carousel-item
                 >
                   <span className="absolute top-1/2 left-1/2 text-sm sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white -translate-x-1/2 -translate-y-1/2">
-                    {image.alt_description || 'Slide'}
+                    {image.alt || 'Slide'}
                   </span>
                   <img
-                    src={image.urls.full}
+                    src={image.src}
                     className="block w-full h-full object-cover"
-                    alt={image.alt_description || 'Image'}
+                    alt={image.alt || 'Image'}
                   />
                 </div>
               ))

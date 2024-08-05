@@ -25,7 +25,7 @@ const Header = () => {
     <header className="bg-white shadow-md p-4 sm:p-6 md:p-8 text-gray-800 w-full">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center justify-between w-full md:w-auto">
-          <h1 className="text-2xl md:text-3xl font-semibold">My Store</h1>
+          <h1 className="text-2xl md:text-3xl font-semibold">Mayur&apos;s Store</h1>
           <button 
             className="block md:hidden text-gray-800 focus:outline-none" 
             onClick={toggleMenu}
